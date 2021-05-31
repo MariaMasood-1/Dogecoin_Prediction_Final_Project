@@ -95,7 +95,7 @@ N = len(X)
 print(“X.shape”, X.shape, “Y.shape”, Y.shape)
 ```
  
-Awesome! We’re now going to have to create a class for our Machine Learning model, this is the fun stuff! Let’s start off by creating a class called BaselineModel, then define a function with the following code: <br>
+We’re now going to have to create a class for our Machine Learning model. Let’s start off by creating a class called BaselineModel, then define a function with the following code: <br>
 ```Python
 #creating a class for our Machine Learning model
 class BaselineModel:
@@ -103,7 +103,7 @@ class BaselineModel:
     return X[:, -1] #return the last value for each input sequence
 ```
 
-Next up we’re going to have to split up our data to a train and test set. We do so by creating the Xtrain & Train variables, we then use the “X” and “N” variables we used before to fill those variables with data, we essentially do the same thing with our “Xtest” and “Ytest” variables with the other half of the data for our test set: <br>
+Next up we’re going to have to split up our data to a train and test set. We do so by creating the Xtrain & Train variables,The model is initially fit on a training dataset,[3] which is a set of examples used to fit the parameters (e.g. weights of connections between neurons in artificial neural networks) of the model. Successively, the fitted model is used to predict the responses for the observations in a second dataset called the validation dataset. Finally, the test dataset is a dataset used to provide an unbiased evaluation of a final model fit on the training dataset.. However, we're not creating a validation dataset in this analysis for the simplicity of the model. We have used the “X” and “N” variables we used before to fill those variables with data, we essentially do the same thing with our “Xtest” and “Ytest” variables with the other half of the data for our test set: <br>
 ```Python
 
 
@@ -111,14 +111,14 @@ Next up we’re going to have to split up our data to a train and test set. We d
 Xtrain, Ytrain = X[:-N//2], Y[:-N//2]
 Xtest, Ytest = X[-N//2:], Y[-N//2:]
 ```
-Awesome! Next up let’s go ahead and setup our model, we’re going to create a “model” variable that holds our “BaselineModel” class, we’re going to create some new variables to pass our train and testing data frames, we do so by using the following code:   <br>
+We now setup our model, we’re going to create a “model” variable that holds our “BaselineModel” class, we’re going to create some new variables to pass our train and testing data frames, we do so by using the following code:   <br>
 ```Python
 
 model = BaselineModel()
 Ptrain = model.predict(Xtrain)
 Ptest = model.predict(Xtest)
 ```
-Great! Now we’re going to go ahead and reshape our arrays once more and store them into another variable as well as create the 1D array with Numpy: <br>
+Now we’re going to go ahead and reshape our arrays once more and store them into another variable as well as create the 1D array with Numpy: <br>
 ```Python
 
 #reshaping the arrays and storing them into another variable and creating a 1D array with Numpy
