@@ -51,8 +51,10 @@ We can print this data out using the df.head(n) function. This function returns 
 
 ```Python
 
- df = yf.download('DOGE-USD', start= '2021-01-01', end= '2021-04-01', progress=False)
+df.head()
  ```
+ <img width="299" alt="computer programming for gis_final project_df head" src="https://user-images.githubusercontent.com/76536418/120230159-b9fa6600-c21c-11eb-97f4-0a3d389dbc12.png">
+
 Next up, we want to get the close price of our crypto and store it in a different variable, we also want to reshape that data frame, by reshaping we can add or remove dimensions or change the number of elements in each dimension. We convert the close to a one-dimensional array. We do so by using the following line: <br>
  ```Python
 
