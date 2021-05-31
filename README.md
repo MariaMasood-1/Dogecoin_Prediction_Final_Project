@@ -176,7 +176,9 @@ And this is our output!
 ## Challenges:
 As we can see in the graph produced, the dogecoin price is highly volatile and is a huge risk for investment. This however is only a practice to learn for academic reason and not for real time investment decision. We may be able to modify and improve the modelling technique by including a validation set and increasing the number of features in order to improve the model performance metrics such as accuracy, recall and precision. Feature variable plays an important role in creating predictive models whether it is Regression or Classification Model. Having a large number of features is not good because it may lead to overfitting, which will make our model specifically fit the data on which it is trained. Also having a large number of features will cause the curse of dimensionality i.e. the features will increase the dimensions of search space for the problem.
 
+## Next steps:
 
+Understanding and Using TLDR Build and train an Bidirectional LSTM Deep Neural Network for Time Series prediction in TensorFlow  to predict the future Dogecoin price. Also, including more relative features to increase accuracy of the model.
 
 ## Resources: 
 https://www.kaggle.com/tarandeep97/dogecoin-analysis
