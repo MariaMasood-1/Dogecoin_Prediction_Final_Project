@@ -79,7 +79,7 @@ series = df['Close'].values.reshape(-1,1)
  ```
  
 The reason we store this in another variable is because we’re going to fit our machine learning model to that specific value. Next up we have to normalize the data, it also often refers to rescaling by the minimum and range of the vector, to make all the elements lie between 0 and 1 thus bringing all the values of numeric columns in the dataset to a common scale. We first start off by declaring our scaler, this will allow us to have a mean value of 0 while having our standard deviation of 1, we would then fit our close data we created in the code above to the scaler we just created, we then declare the “series” variable back to the transformed scaler which is transformed into a 1D array using the “.flatten” command within Numpy. <br>
-```Python;
+```Python
 
 scaler = StandardScaler()      #creating a scalar with 0 mean and 1 standard deviation
 scaler.fit(series[:len(series) // 2])      #fit close data to the scalar
