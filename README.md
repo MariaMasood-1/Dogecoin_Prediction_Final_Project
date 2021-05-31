@@ -3,14 +3,29 @@
 ## Summary: 
 This project uses a machine learning model to explore the variability of dogecoin price in real time, construct a prediction curve and compare the mapping of prediction with actual data to understand the implementation of machine learning model along with learning multiple libraries usage in the modelling. This project will touch on the history and application of Dogecoin establishing the context of the project and further explain the libraries used and their core functions. Also, we'll explain how the machine learning model works and towards the end discuss the conclusion drawn out of the final graph.
 
+## Goal of this project:
+This project gives an overview on the price prediction strategies used in the financial analysis of stock market prediction and the similar modelling technique is used to predict the varying price of Dogecoin. In this project we'll learn:
 
-## Dogecoin: 
+** To implement a price prediction model
+** To understand the use of multiple libraries such as numpy, pandas, matplotlib, etc
+** The concept of statistical analysis such as reshaping the dataframe, normalization of the dataframe, etc
+** How to use training and test data and the significance of using these datasets
+** ploting of the graphs using matplotlib
+
+## What do we need:
+We only need the access to google colab notebook or any python idle to run the code and generate the reults
+
+## Introduction:
+
+### What is Dogecoin?
 Dogecoin is a cryptocurrency created by software engineers Billy Markus and Jackson Palmer, who decided to create a payment system as a joke, making fun of the wild speculation in cryptocurrencies at the time. Dogecoin is an open source peer to peer digital currency. It can be easily transferred from the internet throughout the world (wherever cryptocurrency is not banned). Also, dogecoin is accepted by multiple retailers. For example, if someone bought dogecoin at the rate of $0.002/dogecoin, and invested $20 to get 1000 dogecoins. Irrespective of the price variation of the cryptocurrency the buyer would have the value of 1000 dogecoins to trade for its worth. Dogecoin, a cryptocurrency that was created as a joke, has risen in price by more than 12,000% and hit a record 69 cents per token this week. But it is a highly volatile investment and involves a lot of risk. Even the price prediction of Dogecoin is not the usual stock market prediction where the traders can make a safe bet. 
 
-### Price Prediction Model:
+### What is Price Prediction Model:
 Predicting the price of a cryptocurrency is a regression problem in machine learning. We will be studying the historical prices of Dogecoin cryptocurrency employing the yahoo finance database to fetch the historical prices of Dogecoin. Dogecoin is very cheap right now, but financial experts are predicting that we may see a major increase in dogecoin prices.
  
 There are multiple ways to construct a machine learning model that we can use for the task of Dogecoin price prediction. We use a simple machine learning model using python/object oriented programming using multiple libraries. We will dive deeper into the project now.
+
+## Implementation of the model-
  
 ### Importing / Installing the packages
 Before we start, Let’s install and import the required libraries such as numpy, pandas, matplotlib and SciKit-Learn as well as Yahoo’s finance packages, I’ve pip installed yahoo finance package since it was not available on google colab. We install these packages by doing this:
@@ -30,15 +45,19 @@ from yahoofinancials import YahooFinancials
 
 ### Function of different libraries
 <br>
--Numpy
+-Numpy: Numpy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 <br>
--Pandas 
+-Pandas: Pandas is defined as an open-source library that provides high-performance data manipulation in Python. It is built on top of the NumPy package, which means Numpy is required for operating the Pandas. The name of Pandas is derived from the word Panel Data, which means an Econometrics from Multidimensional data. It is used for data analysis in Python and developed by Wes McKinney in 2008.
+
+Before Pandas, Python was capable for data preparation, but it only provided limited support for data analysis. So, Pandas came into the picture and enhanced the capabilities of data analysis. It can perform five significant steps required for processing and analysis of data irrespective of the origin of the data, i.e., load, manipulate, prepare, model, and analyze. The Pandas module mainly works with the tabular data, whereas the NumPy module works with the numerical data. So, together Numpy and Pandas provide a great accessibility to statistical analysis.
 <br>
--matplotlib
+-matplotlib: Matplotlib is a plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt, or GTK.
 <br>
--SciKit-learn
+-SciKit-learn: SciKit-learn is a free software machine learning library for the Python programming language. It features various classification, regression and clustering algorithms including support vector machines, random forests, gradient boosting, k-means and DBSCAN, and is designed to interoperate with the Python numerical and scientific libraries NumPy and SciPy.
 <br>
--Yfinance
+-Yfinance: yfinance is a popular open source library developed by Ran Aroussi as a means to access the financial data available on Yahoo Finance.
+
+Yahoo Finance offers an excellent range of market data on stocks, bonds, currencies and cryptocurrencies. It also offers market news, reports and analysis and additionally options and fundamentals data- setting it apart from some of it’s competitors.
 
 ### Downloading and refining the data:
 
@@ -62,7 +81,7 @@ series = df['Close'].values.reshape(-1,1)
  ```
  
 The reason we store this in another variable is because we’re going to fit our machine learning model to that specific value. Next up we have to normalize the data, it also often refers to rescaling by the minimum and range of the vector, to make all the elements lie between 0 and 1 thus bringing all the values of numeric columns in the dataset to a common scale. We first start off by declaring our scaler, this will allow us to have a mean value of 0 while having our standard deviation of 1, we would then fit our close data we created in the code above to the scaler we just created, we then declare the “series” variable back to the transformed scaler which is transformed into a 1D array using the “.flatten” command within Numpy. <br>
-```Python
+```Python;
 
 scaler = StandardScaler()      #creating a scalar with 0 mean and 1 standard deviation
 scaler.fit(series[:len(series) // 2])      #fit close data to the scalar
@@ -153,5 +172,19 @@ And this is our output!
 
 ![dogecoin_forecast](https://user-images.githubusercontent.com/76536418/120227347-f925b880-c216-11eb-9bc0-b862a88e1c29.png)
 
- 
- 
+## Challenges:
+As we can see in the graph produced, the dogecoin price is highly volatile and is a huge risk for investment. This however is only a practice to learn for academic reason and not for real time investment decision. We may be able to modify and improve the modelling technique by including a validation set and increasing the number of features in order to improve the model performance metrics such as accuracy, recall and precision. Feature variable plays an important role in creating predictive models whether it is Regression or Classification Model. Having a large number of features is not good because it may lead to overfitting, which will make our model specifically fit the data on which it is trained. Also having a large number of features will cause the curse of dimensionality i.e. the features will increase the dimensions of search space for the problem.
+
+
+
+Resources: https://www.kaggle.com/tarandeep97/dogecoin-analysis
+
+https://www.kaggle.com/kaushiksuresh147/doge-coin-to-moon-eda-and-prediction
+
+https://lazyprogrammer.me/
+
+https://preettheman.medium.com/how-to-predict-doge-coin-price-using-machine-learning-and-python-4bc7d723a6d3
+
+https://www.wsj.com/articles/how-dogecoin-is-creating-a-frenzy-for-the-next-big-cryptocurrencyand-why-experts-advise-caution-11620411623
+
+
