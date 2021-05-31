@@ -1,1 +1,1 @@
-# Dogecoin_Prediction_Final_Project
+# Dogecoin Prediction Final Project
