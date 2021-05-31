@@ -6,11 +6,11 @@ This project uses a machine learning model to explore the variability of dogecoi
 ## Goal of this project:
 This project gives an overview on the price prediction strategies used in the financial analysis of stock market prediction and the similar modelling technique is used to predict the varying price of Dogecoin. In this project we'll learn:
 
-** To implement a price prediction model
-** To understand the use of multiple libraries such as numpy, pandas, matplotlib, etc
-** The concept of statistical analysis such as reshaping the dataframe, normalization of the dataframe, etc
-** How to use training and test data and the significance of using these datasets
-** ploting of the graphs using matplotlib
+* To implement a price prediction model
+* To understand the use of multiple libraries such as numpy, pandas, matplotlib, etc
+* The concept of statistical analysis such as reshaping the dataframe, normalization of the dataframe, etc
+* How to use training and test data and the significance of using these datasets
+* ploting of the graphs using matplotlib
 
 ## What do we need:
 We only need the access to google colab notebook or any python idle to run the code and generate the reults
