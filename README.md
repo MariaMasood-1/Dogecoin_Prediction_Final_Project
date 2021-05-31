@@ -82,8 +82,6 @@ for t in range(len(series) - T):
 ```
 Notice that we are using a lowercase “t” which is our counter in this specific example, next up let’s fill our for loop up, so now we want to store our series data using our counter into another variable (x in this example) by slicing the dataset, then append that data to our uppercase X data frame that we declared above and then we do the same thing but instead of slicing the dataset we’re going to be just using it as a counter within the series dataset, we then append that same data to the Y data frame we created earlier. here are those lines in our for loop: <br>
 ```
-python
-
  x = series[t:t+T]
   X.append(x)
   y = series[t+T]
@@ -93,7 +91,6 @@ python
 
 Finally, we want to reshape our data frame, this will basically give a new shape to our data frame without changing any of the data in this data frame, we will then create an array for the “Y” data frame as well, finally we will get the length of the “X” array and store it in a new variable called “N”. <br>
 ```
-python
 X = np.array(X).reshape(-1, T)
 Y = np.array(Y)
 N = len(X)
@@ -102,7 +99,6 @@ print(“X.shape”, X.shape, “Y.shape”, Y.shape)
  
 Awesome! We’re now going to have to create a class for our Machine Learning model, this is the fun stuff! Let’s start off by creating a class called BaselineModel, then define a function with the following code: <br>
 ```
-python
 #creating a class for our Machine Learning model
 class BaselineModel:
   def predict(self, X):
@@ -111,7 +107,7 @@ class BaselineModel:
 
 Next up we’re going to have to split up our data to a train and test set. We do so by creating the Xtrain & Train variables, we then use the “X” and “N” variables we used before to fill those variables with data, we essentially do the same thing with our “Xtest” and “Ytest” variables with the other half of the data for our test set: <br>
 ```
-python
+
 
 #split the data to test data and train data
 Xtrain, Ytrain = X[:-N//2], Y[:-N//2]
@@ -119,15 +115,14 @@ Xtest, Ytest = X[-N//2:], Y[-N//2:]
 ```
 Awesome! Next up let’s go ahead and setup our model, we’re going to create a “model” variable that holds our “BaselineModel” class, we’re going to create some new variables to pass our train and testing data frames, we do so by using the following code:   <br>
 ```
-python
+
 model = BaselineModel()
 Ptrain = model.predict(Xtrain)
 Ptest = model.predict(Xtest)
 ```
 Great! Now we’re going to go ahead and reshape our arrays once more and store them into another variable as well as create the 1D array with Numpy: <br>
-Almost Done! Now we’re going to go ahead and send our data to pretty much be forecasted, the future data will be appended into our “forecast” variable, then our data will be plotted using the package matplotlib! This is the code to do that: <br>
 ```
-python
+
 #reshaping the arrays and storing them into another variable and creating a 1D array with Numpy
 
 Ytrain2 = scaler.inverse_transform(Ytrain.reshape(-1,1)).flatten()
@@ -135,6 +130,25 @@ Ytest2 = scaler.inverse_transform(Ytest.reshape(-1,1)).flatten()
 Ptrain2 = scaler.inverse_transform(Ptrain.reshape(-1,1)).flatten()
 Ptest2 = scaler.inverse_transform(Ptest.reshape(-1,1)).flatten()
 ```
+Almost Done! Now we’re going to go ahead and send our data to pretty much be forecasted, the future data will be appended into our “forecast” variable, then our data will be plotted using the package matplotlib! This is the code to do that: <br>
+```
+#Forecasting the prediction data
+
+forecast = []
+input_ = Xtest[0]
+while len(forecast) < len(Ytest):
+  f = model.predict(input_.reshape(1,T))[0]
+  forecast.append(f)
+  #make a new input with the latest forecast
+  input = np.roll(input_, -1)
+  input_[-1] = f
+plt.plot(Ytest, label = 'target')
+plt.plot(forecast, label = 'prediction')
+plt.legend()
+plt.title("Right forecast")
+plt.show()
+```
+
 And this is our output!
 
  
