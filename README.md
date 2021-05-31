@@ -151,5 +151,7 @@ plt.show()
 
 And this is our output!
 
+![dogecoin_forecast](https://user-images.githubusercontent.com/76536418/120227347-f925b880-c216-11eb-9bc0-b862a88e1c29.png)
+
  
  
